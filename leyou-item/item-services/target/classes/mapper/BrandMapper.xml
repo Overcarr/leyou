@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.leyou.item.services.mapper.BrandMapper">
+    <resultMap id="brand" type="cn.leyou.item.pojo.Brand">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="image" property="image"></result>
+        <result column="letter" property="letter"></result>
+    </resultMap>
+    <select id="queryBrands" resultMap="brand">
+        SELECT * FROM tb_brand where id in (select brand_id from tb_category_brand where category_id = #{cid})
+    </select>
+</mapper>

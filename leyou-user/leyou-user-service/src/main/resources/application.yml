@@ -1,0 +1,29 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/leyou?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    hikari:
+      username: root
+      password: root
+  main:
+    allow-bean-definition-overriding: true
+  rabbitmq:
+    host: 192.168.1.103
+    username: leyou
+    password: 123456
+    virtual-host: /leyou
+  redis:
+    host: 192.168.1.103
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5
+

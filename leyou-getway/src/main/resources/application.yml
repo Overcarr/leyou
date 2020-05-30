@@ -1,0 +1,38 @@
+server:
+  port: 10010
+
+spring:
+  application:
+    name: leyou-getway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5  #拉取服务时间
+zuul:
+  prefix: /api
+  routes:
+    item-service: /item/**
+    search-service: /search/**
+    user-service: /user/**
+    auth-service: /auth/**
+  add-host-header: true
+  sensitive-headers:
+  ignored-services:
+    - upload-service
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
