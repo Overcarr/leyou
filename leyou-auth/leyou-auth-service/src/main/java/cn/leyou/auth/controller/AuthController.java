@@ -42,12 +42,18 @@ public class AuthController {
     }
 
     @GetMapping("verify")
-    public ResponseEntity<UserInfo> verify(@CookieValue("LY_TOKEN")String token) throws Exception {
-        UserInfo userInfo = JwtUtils.getInfoFromToken(token, jwtProperties.getPublicKey());
-        if (userInfo==null){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<UserInfo> verify(@CookieValue("LY_TOKEN")String token,
+                                           HttpServletRequest request,
+                                           HttpServletResponse response) throws Exception {
+        try {
+            UserInfo userInfo = JwtUtils.getInfoFromToken(token, jwtProperties.getPublicKey());
+            token = JwtUtils.generateToken(userInfo, jwtProperties.getPrivateKey(), jwtProperties.getExpire());
+            CookieUtils.setCookie(request,response,jwtProperties.getCookieName(),token,jwtProperties.getCookieMaxAge());
+            return ResponseEntity.ok(userInfo);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return ResponseEntity.ok(userInfo);
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

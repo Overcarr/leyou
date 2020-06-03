@@ -1,3 +1,4 @@
+/*
 package cn.leyou.search.listener;
 
 import cn.leyou.search.service.SearchService;
@@ -50,3 +51,4 @@ public class GoodListener {
    }
 
 }
+*/

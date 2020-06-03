@@ -94,4 +94,9 @@ public class GoodsController {
         return ResponseEntity.ok(goodsService.selectSpuById(id));
     }
 
+
+    @GetMapping("sku/{id}")
+    public Sku selectSkuById(@PathVariable Long id){
+        return goodsService.selectSkuById(id);
+    }
 }
