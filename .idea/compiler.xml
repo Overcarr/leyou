@@ -6,19 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="leyou-user-service" />
-        <module name="item-interface" />
-        <module name="leyou-auth-common" />
-        <module name="leyou-registries" />
-        <module name="leyou-auth-service" />
-        <module name="leyou-getway" />
-        <module name="leyou-user-interfaces" />
-        <module name="leyou-goods-web" />
-        <module name="leyou-sms" />
         <module name="leyou-common" />
-        <module name="leyou-search" />
-        <module name="item-services" />
         <module name="leyou-upload" />
+        <module name="leyou-search" />
+        <module name="leyou-goods-web" />
+        <module name="leyou-auth-service" />
+        <module name="leyou-auth-common" />
+        <module name="leyou-user-service" />
+        <module name="leyou-cart" />
+        <module name="leyou-getway" />
+        <module name="leyou-registries" />
+        <module name="item-services" />
+        <module name="item-interface" />
+        <module name="leyou-sms" />
+        <module name="leyou-user-interfaces" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -29,6 +30,7 @@
       <module name="leyou-auth" target="1.8" />
       <module name="leyou-auth-common" target="1.8" />
       <module name="leyou-auth-service" target="1.8" />
+      <module name="leyou-cart" target="1.8" />
       <module name="leyou-common" target="1.8" />
       <module name="leyou-getway" target="1.8" />
       <module name="leyou-goods-web" target="1.8" />
@@ -51,6 +53,7 @@
       <module name="leyou" options="-parameters" />
       <module name="leyou-auth-common" options="-parameters" />
       <module name="leyou-auth-service" options="-parameters" />
+      <module name="leyou-cart" options="-parameters" />
       <module name="leyou-common" options="-parameters" />
       <module name="leyou-getway" options="-parameters" />
       <module name="leyou-goods-web" options="-parameters" />
